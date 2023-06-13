@@ -62,37 +62,24 @@ This project is an attepmt to bring research, backtest, trading, and monitoring 
   > info <- oanda.orders.createClientExtensions("A comment","strategy_9","my_order_10000")
   > oanda.orders.createMarketOrder('101-001-3704066-001',"USD_MXN",10000,priceBound=19.86263, info)  #add customization
   ```       
-## Backtest & Algo Trading  
-- [x] A backtesting and automated trading template. Visit the wiki page for a detailed [tutorial.](https://github.com/ltekengineering/oanda/wiki/B.-Algo-Trading-Template)
-1. Go to strategy directory and create a simplink
-``` console    
-  foo@bar: cd strat
-  foo@bar: ln -s config_ppe.ini config.ini
-```  
-2. Edit token and account parameters in config_ppe.ini or config_prod.ini with your token and account numbers
-    ![Ini file](https://github.com/ltekengineering/oanda/blob/main/media/backtest.ini.png)
 
-3. Backtest
-``` console
-  foo@bar: Rscript --no-save backtest.r USD_MXN S5 500 800 0.0003 5
-```
-4. Trade 
-``` console
-  foo@bar: Rscript --no-save trade.r USD_MXN S5 180 360 0.0003 5
-```
 ## Shiny Dashboard  
 - [x] A shiny app to monitor account activity in real time. Visit the wiki page for a detailed [tutorial.](https://github.com/ltekengineering/oanda/wiki/C.-Dashboard)  
- 1. Go to dashboard directory
+
+1. Go to dashboard directory
 ``` console
   foo@bar: cd dasboard
 ```
- 2. Edit token and accounts parameters in config_ppe.ini or config_prod.ini with your token and account numbers
+2. Edit token and accounts parameters in config_ppe.ini or config_prod.ini with your token and account numbers
     ![Ini file](https://github.com/ltekengineering/oanda/blob/main/media/key.png)
- 3. Start the dashboard
+3. Start the dashboard
 ``` console
   foo@bar: ln -s config_ppe.ini config.ini 
   foo@bar: Rscript --no-save dash.r        
 ```
- Point to config_prod.ini when you're ready to go live
+Point to config_prod.ini when you're ready to go live
 
- 4. Go here http://localhost:8989/
+4. Go here http://localhost:8989/
+
+## Backtest & Algo Trading  
+- Back-testing demo scripts have been removed
