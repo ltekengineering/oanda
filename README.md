@@ -1,4 +1,4 @@
-# An open source R project on [OANDA](https://www.oanda.com/us-en/) FX trading [API](https://developer.oanda.com/rest-live-v20/introduction/)
+# R wrapper around [OANDA](https://www.oanda.com/us-en/) FX trading V20 [API](https://developer.oanda.com/rest-live-v20/introduction/)
 This project is an attepmt to bring research, backtest, trading, and monitoring using R wrapper around OANDA broker's HTTP API . It was motivated by a need to quickly turn research in to executable trades. There are three components:
 - [Research](https://github.com/thelawrencekhan/oanda/blob/main/README.md#trading-api)
 - [Backtest & Trading](https://github.com/thelawrencekhan/oanda/blob/main/README.md#backtest--algo-trading)
