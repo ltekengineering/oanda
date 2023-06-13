@@ -1,0 +1,22 @@
+Package: oanda
+Title: R implementation of OANDA V2 API
+Version: 0.0.9
+Authors@R: 
+    person(given = "Lawrence",
+           family = "Khan",
+           role = c("aut", "cre"),
+           email = "LK1186@NYU.EDU")
+Description: A set of robust R functions that implements OANDA's V2 HTTP API for algorithmic trading. The package creation was motivated by the need to quickly move research into executable trades in a production system. With this package one can access account information, place, modify, cancel an order. 
+License: use_mit_license()
+Depends: R (>= 4.0.0)
+Imports: 
+    curl (>= 4.3),
+    jsonlite (>= 1.7.0)
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
