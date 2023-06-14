@@ -639,7 +639,7 @@ oanda.orders.createStopLossDetails <- function(price, distance, clientExtensions
 #' @examples 
 #' oanda.orders.createTrailingStopLossDetails(distance = 0.0500)
 #' info <- oanda.orders.createClientExtensions("A comment","strategy_9","my_order_10000")
-#' oanda.orders.createStopLossDetails(distance = 0.0100, info)
+#' oanda.orders.createTrailingStopLossDetails(distance = 0.0100, info)
 #' @export
 oanda.orders.createTrailingStopLossDetails <- function(distance, clientExtensions){
     TrailingStopLossDetails = list()
@@ -1234,16 +1234,17 @@ oanda.trades.editById<-function(account,tradeId,takeProfit,stopLoss,trailingStop
     }        
 }
 
-#' List Positions
+#' List all positions. Open or Close
 #' 
-# List all history of positions for an Account. The Positions returned are for every instrument that has had a position during the lifetime of an the Account.
+# Query history of all currency positions held for an Account. The list returns all position ever held during the lifetime of an the Account.
+# 
 #'
 #' @param account The string representation of an Account Identifier.
 #' @return R list object detailing the response from the server.
 #' @examples 
 #' oanda.positions('101-001-3704066-001')
 #' @export
-oanda.positions<-function(account){
+oanda.positions.all<-function(account){
     base.url<-config$baseurl#set base url
     curl.handle<-curl::new_handle()#create a new handle
     curl::handle_setheaders(curl.handle,"Authorization" = paste("Bearer", config$token),"Accept-Datetime-Format" = "UNIX")#set headers
@@ -1262,9 +1263,9 @@ oanda.positions<-function(account){
     }    
 }
 
-#' List open positins
+#' List all open positions
 #' 
-# List all open Positions for an Account. An open Position is a Position in an Account that currently has a Trade opened for it.
+# List all open positions for an Account. An open position in an Account is an open trade on that instrument in that particular account.
 #'
 #' @param account The string representation of an Account Identifier.
 #' @return R list object detailing the response from the server.
@@ -1292,7 +1293,7 @@ oanda.positions.open<-function(account){
 
 #' List position by instrument.
 #' 
-# Get the details of a single Instrument’s Position in an Account. The Position may by open or not.
+# Get the details of a single instrument's position in an account. The position may by open or close.
 #'
 #' @param account The string representation of an Account Identifier.
 #' @param instrument The name of the instrument to query positions by.
@@ -1321,7 +1322,7 @@ oanda.positions.instrument<-function(account,instrument){
 
 #' Close position by instrument.
 #' 
-# Closeout the open position for a specific instrument in an Account.
+# Closeout the open position for a specific instrument in an Account. If there are multiple trades for the instrument, this function will close all of them.
 #'
 #' @param account The string representation of an Account identifier.
 #' @param instrument The name of the instrument.
