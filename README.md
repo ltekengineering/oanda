@@ -8,20 +8,22 @@ This project is an attepmt to bring research, backtest, trading, and monitoring 
 ## Installation
 1. Prerequisites: Ensure that the following packages are installed
   ``` R
-    > install.packages(c("curl","jsonlite","devtools")) # only the package
+    > install.packages(c("curl","jsonlite","remotes")) # only the package
     > install.packages(c("curl","jsonlite","devtools","shiny","shinythemes","ini")) # package + dashboard
     > install.packages(c("curl","jsonlite","devtools","shiny","shinythemes","ini","zoo")) #package + dashboard + demo backtest & toy algo trading
   ```
 2. Install oanda's api
   ``` R
-    > library(devtools)
-    > install_github(repo="ltekengineering/oanda", subdir="oanda")
+    > remotes::install_github(repo="ltekengineering/oanda", subdir="oanda")
   ```
+   If `remotes::install_github` fails then please skip to step 3 and navigate to `repo/oanda` and run the following command
+   ``` R
+    > install.packages("oanda_0.0.9.tar.gz", repos = NULL, type="source", INSTALL_opts="--no-multiarch")
+   ```
 3. Additional features:
   ``` console
     foo@bar: git clone git@github.com:ltekengineering/oanda.git    
   ```
-
 ## Trading API
 - [x] Implementation of the trading [API](http://developer.oanda.com/rest-live-v20/introduction/) in R for algorithmic trading. A complete [tutorial](https://github.com/ltekengineering/oanda/wiki/D.-Trading-Api-Tutorial) is here.
   ### Using library  
